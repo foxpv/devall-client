@@ -1,0 +1,10 @@
+<div style="margin-bottom: 20px;">
+  <span style="font-weight: bold;">Busca: </span>
+  <input type="text" [(ngModel)]="value">
+</div>
+
+<div *ngFor="let post of posts | filter: value" style="border-style: solid; margin-bottom: 20px;">
+  <p><span style="font-weight: bold;">Título: </span>{{post.titulo}}</p>
+  <p><span style="font-weight: bold;">Resumo: </span>{{post.resumo}}</p>
+  <p><a target="_blank" href="{{post.blog.url}}">Ir para o blog!</a></p>
+</div>
