@@ -20,9 +20,10 @@ export class PostsComponent implements OnInit {
   ngOnInit() {
     this.postService.posts()
     .subscribe(posts => {
-      //this.filter = '';
+      console.log(posts);
       this.posts = this.posts.concat(posts);
     })
   }
+
 
 }
