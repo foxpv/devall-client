@@ -1,9 +1,13 @@
 <div style="margin-bottom: 20px;">
   <span style="font-weight: bold;">Busca: </span>
-  <input type="text" [(ngModel)]="value">
+  <input type="text" [(ngModel)]="value" (ngModelChange)="this.valueUpdate.next($event)">
 </div>
 
-<div *ngFor="let post of posts | filter: value" style="border-style: solid; margin-bottom: 20px;">
+<p *ngIf="buscando" style="font-weight: bold;">
+  Buscando...
+</p>
+
+<div *ngFor="let post of posts" style="border-style: solid; margin-bottom: 20px;">
   <p><span style="font-weight: bold;">Título: </span>{{post.titulo}}</p>
   <p><span style="font-weight: bold;">Resumo: </span>{{post.resumo}}</p>
   <p *ngIf="(post.url)">

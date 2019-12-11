@@ -15,4 +15,9 @@ export class PostService{
     posts(){
         return this.http.get<Post[]>(DEVALL_API + '/post');
     }
+
+    search(word: string){
+        const parameters = new HttpParams().append('search', word);
+        return this.http.get<Post[]>(DEVALL_API + '/post', {params: parameters});
+    }
 }    
